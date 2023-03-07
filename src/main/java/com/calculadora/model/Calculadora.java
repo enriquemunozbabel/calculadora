@@ -1,13 +1,13 @@
-package com.hospital.citasHospital.model;
+package com.calculadora.model;
 
 import java.util.Date;
 
-public class Cita {
+public class Calculadora {
     private String nombre;
     private String apellidos;
     private Date fecha;
 
-    public Cita(String nombre, String apellidos, Date fecha) {
+    public Calculadora(String nombre, String apellidos, Date fecha) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fecha = fecha;
