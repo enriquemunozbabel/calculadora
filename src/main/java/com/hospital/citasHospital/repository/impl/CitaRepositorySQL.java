@@ -4,25 +4,22 @@ import com.hospital.citasHospital.model.Cita;
 import com.hospital.citasHospital.repository.CitaRepoI;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-@Repository("Memory")
-public class CitaRepository implements CitaRepoI {
-    public CitaRepository() {
-        citas = new ArrayList<>();
-    }
-
-    private List<Cita> citas;
+@Repository("SQL")
+public class CitaRepositorySQL implements CitaRepoI {
+    @Override
     public void Alta(Cita citaId) {
-        citas.add(citaId);
+
     }
 
+    @Override
     public void Baja(int indice) {
-        citas.remove(indice);
+
     }
 
+    @Override
     public List<Cita> Listado() {
-        return citas;
+        return null;
     }
 }

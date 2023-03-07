@@ -3,6 +3,7 @@ package com.hospital.citasHospital.infra.console;
 import com.hospital.citasHospital.model.Cita;
 import com.hospital.citasHospital.service.impl.CitaService;
 
+import javax.annotation.PostConstruct;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +19,8 @@ public class ConsoleReader {
     }
 
     CitaService citaService;
+
+    @PostConstruct
     public void Init(){
         Scanner sc = new Scanner(System.in);
         int opc=1;
@@ -44,11 +47,11 @@ public class ConsoleReader {
                     String nombre=sc.next();
                     System.out.println("Inserte apellidos");
                     String apellidos=sc.next();
-                    System.out.println("Inserte fecha (dd/MM/yyyy HH:mm:ss)");
-                    String fecha=sc.next();
+                    System.out.println("Ingrese fecha (dd/MM/YYYY HH:mm:ss): ");
+                    String fecha = sc.nextLine();
                     Date fechaCita;
-                    try {
-                        fechaCita=fechaFormateador.parse(sc.nextLine());
+                    try{
+                        fechaCita = fechaFormateador.parse(sc.nextLine());
                         citaService.Alta(new Cita(nombre,apellidos,fechaCita));
                     }
                     catch (ParseException e) {
